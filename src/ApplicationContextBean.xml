@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:tx="http://www.springframework.org/schema/tx"
+	xmlns:jdbc="http://www.springframework.org/schema/jdbc"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:aop="http://www.springframework.org/schema/aop"
+	xsi:schemaLocation="http://www.springframework.org/schema/jdbc http://www.springframework.org/schema/jdbc/spring-jdbc-4.3.xsd
+		http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.3.xsd
+		http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-4.3.xsd
+		http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-4.3.xsd">
+
+	<!-- 保存设备信息 -->
+	<bean id="my_deviceinfoDao" class="org.com.xsx.daos.DeviceInfoDao">
+		<property name="sessionFactory" ref="MySeesionFactory"></property>
+	</bean>
+	
+	<bean id="my_deviceinfoService" class="org.com.xsx.services.DeviceInfoService">
+		<property name="deviceInfoDao" ref="my_deviceinfoDao"></property>
+	</bean>
+	
+	<bean id="my_deviceinfoAction" class="org.com.xsx.actions.DeviceAction" scope="prototype">
+		<property name="deviceInfoService" ref="my_deviceinfoService"></property>
+	</bean>
+	
+	<!-- 保存测试数据 -->
+	<bean id="my_testdataDao" class="org.com.xsx.daos.TestDataDao">
+		<property name="sessionFactory" ref="MySeesionFactory"></property>
+	</bean>
+	
+	<bean id="my_testdataService" class="org.com.xsx.services.TestDataService">
+		<property name="testDataDao" ref="my_testdataDao"></property>
+	</bean>
+	
+	<bean id="my_testdataAction" class="org.com.xsx.actions.TestDataAction" scope="prototype">
+		<property name="testDataService" ref="my_testdataService"></property>
+	</bean>
+	
+	<!-- 保存检测卡信息 -->
+	<bean id="my_testcardDao" class="org.com.xsx.daos.TestCardDao">
+		<property name="sessionFactory" ref="MySeesionFactory"></property>
+	</bean>
+	
+	<bean id="my_testcardService" class="org.com.xsx.services.TestCardService">
+		<property name="testCardDao" ref="my_testcardDao"></property>
+	</bean>
+	
+	<bean id="my_testcardAction" class="org.com.xsx.actions.TestCardAction" scope="prototype">
+		<property name="testCardService" ref="my_testcardService"></property>
+	</bean>
+	
+	<!-- 读取时间 -->
+	<bean id="my_readtimeService" class="org.com.xsx.services.ReadTimeService">
+		<property name="deviceInfoDao" ref="my_deviceinfoDao"></property>
+	</bean>
+	
+	<bean id="my_readtimeAction" class="org.com.xsx.actions.ReadTimeAction" scope="prototype">
+		<property name="readtimeservice" ref="my_readtimeService"></property>
+	</bean>
+	
+</beans>

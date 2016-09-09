@@ -1,0 +1,48 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 2016-9-7 19:55:56 by Hibernate Tools 3.5.0.Final -->
+<hibernate-mapping>
+    <class name="org.com.xsx.beans.DeviceInfoBean" table="DEVICEINFOBEAN">
+        <id name="deviceid" type="java.lang.String">
+            <column name="DEVICEID" />
+            <generator class="assigned" />
+        </id>
+        <property name="devicename" type="java.lang.String">
+            <column name="DEVICENAME" />
+        </property>
+        <property name="makername" type="java.lang.String">
+            <column name="MAKERNAME" />
+        </property>
+        <property name="makerphone" type="java.lang.String">
+            <column name="MAKERPHONE" />
+        </property>
+        <property name="deviceaddr" type="java.lang.String">
+            <column name="DEVICEADDR" />
+        </property>
+        <property name="username" type="java.lang.String">
+            <column name="USERNAME" />
+        </property>
+        <property name="userage" type="java.lang.String">
+            <column name="USERAGE" />
+        </property>
+        <property name="usersex" type="java.lang.String">
+            <column name="USERSEX" />
+        </property>
+        <property name="userphone" type="java.lang.String">
+            <column name="USERPHONE" />
+        </property>
+        <property name="userjob" type="java.lang.String">
+            <column name="USERJOB" />
+        </property>
+        <property name="userdesc" type="java.lang.String">
+            <column name="USERDESC" />
+        </property>
+        <property name="lasttime" type="java.lang.Long">
+            <column name="LASTTIME" />
+        </property>
+        <property name="isok" type="java.lang.Boolean">
+            <column name="ISOK" />
+        </property>
+    </class>
+</hibernate-mapping>

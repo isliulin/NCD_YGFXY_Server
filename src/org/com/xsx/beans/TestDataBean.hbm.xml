@@ -1,0 +1,57 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 2016-9-7 19:11:47 by Hibernate Tools 3.5.0.Final -->
+<hibernate-mapping>
+    <class name="org.com.xsx.beans.TestDataBean" table="TESTDATABEAN">
+        <id name="cardid" type="java.lang.String">
+            <column name="CARDID" />
+            <generator class="assigned" />
+        </id>
+        <property name="deviceid" type="java.lang.String">
+            <column name="DEVICEID" />
+        </property>
+        <property name="testdate" type="java.lang.String">
+            <column name="TESTDATE" />
+        </property>
+        <property name="e_t" type="java.lang.Float">
+            <column name="E_T" />
+        </property>
+        <property name="o_t" type="java.lang.Float">
+            <column name="O_T" />
+        </property>
+        <property name="outtime" type="java.lang.Integer">
+            <column name="OUTTIME" />
+        </property>
+        <property name="c_l" type="java.lang.Integer">
+            <column name="C_L" />
+        </property>
+        <property name="t_l" type="java.lang.Integer">
+            <column name="T_L" />
+        </property>
+        <property name="b_l" type="java.lang.Integer">
+            <column name="B_L" />
+        </property>
+        <property name="series" type="text">
+            <column name="SERIES" length="4096"/>
+        </property>
+        <property name="t_c_value" type="java.lang.Float">
+            <column name="T_C_VALUE" />
+        </property>
+        <property name="b_value" type="java.lang.Float">
+            <column name="B_VALUE" />
+        </property>
+        <property name="a_value" type="java.lang.Float">
+            <column name="A_VALUE" />
+        </property>
+        <property name="simpleid" type="java.lang.String">
+            <column name="SIMPLEID" />
+        </property>
+        <property name="report_result" type="java.lang.Boolean">
+            <column name="REPORT_RESULT" />
+        </property>
+        <property name="report_desc" type="java.lang.String">
+            <column name="REPORT_DESC" />
+        </property>
+    </class>
+</hibernate-mapping>

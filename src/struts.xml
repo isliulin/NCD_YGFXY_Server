@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC
+"-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+"http://struts.apache.org/dtds/struts-2.0.dtd">
+<struts>
+    
+    <constant name="struts.custom.i18n.resources" value="mess"/>
+	<constant name="struts.i18n.encoding" value="GBK"/>
+	
+    <constant name="struts.enable.DynamicMethodInvocation" value="true"/>
+    
+	<!-- Action所在包定义 -->
+	<package name="default" namespace="/" extends="json-default" >
+		<action name="up_info" class="my_deviceinfoAction" method="SaveDeviceInfo">
+			<result type="json">
+				<param name="root">resultstr</param>
+			</result>
+		</action>
+		
+		<action name="UploadTestDataAction" class="my_testdataAction" method="SaveOrUpdateTestData">
+			<result name="success">WEB-INF/MyPages/success.jsp</result>
+			<result name="error">WEB-INF/MyPages/error.jsp</result>
+		</action>
+		
+		<action name="UploadTestCardAction" class="my_testcardAction" method="SaveOrUpdateTestCardData">
+			<result name="success">WEB-INF/MyPages/success.jsp</result>
+			<result name="error">WEB-INF/MyPages/error.jsp</result>
+		</action>
+		
+		<action name="UpLoadSeriesAction" class="my_testdataAction" method="SaveOrUpdateTestDataSeries">
+			<result name="success">WEB-INF/MyPages/success.jsp</result>
+			<result name="error">WEB-INF/MyPages/error.jsp</result>
+		</action>
+		
+		<action name="ReadTimeAction" class="my_readtimeAction" method="ReadTimeAction">
+			<result name="success">WEB-INF/MyPages/success.jsp</result>
+			<result name="error">WEB-INF/MyPages/error.jsp</result>
+		</action>
+		
+	</package>
+</struts>
