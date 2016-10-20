@@ -10,7 +10,7 @@ import org.com.xsx.services.ReadTimeService;
 
 import com.opensymphony.xwork2.ActionSupport;
 
-public class ReadTimeAction extends ActionSupport implements RequestAware {
+public class ReadTimeAction extends ActionSupport {
 
 	/**
 	 * 
@@ -21,10 +21,19 @@ public class ReadTimeAction extends ActionSupport implements RequestAware {
 	
 	private String deviceid;
 	
-	private Map<String, Object> request;
+	private String resultstr;
+
 
 	public void setReadtimeservice(ReadTimeService readtimeservice) {
 		this.readtimeservice = readtimeservice;
+	}
+
+	public String getResultstr() {
+		return resultstr;
+	}
+
+	public void setResultstr(String resultstr) {
+		this.resultstr = resultstr;
 	}
 
 	public String getDeviceid() {
@@ -34,22 +43,14 @@ public class ReadTimeAction extends ActionSupport implements RequestAware {
 	public void setDeviceid(String deviceid) {
 		this.deviceid = deviceid;
 	}
-
-	@Override
-	public void setRequest(Map<String, Object> arg0) {
-		// TODO Auto-generated method stub
-		request = arg0;
-	}
 	
 	public String ReadTimeAction(){
 		
 		SimpleDateFormat     matter1     =     new     SimpleDateFormat( "yyyyMMddHHmmss");    
 		
-		String timestr = matter1.format(new Date());
+		resultstr = "myresult->"+matter1.format(new Date());
 		
 		readtimeservice.UpdateDeviceLastTime(deviceid);
-		
-		request.put("massege", timestr);
 		
 		return SUCCESS;
 	}

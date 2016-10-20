@@ -1,48 +1,39 @@
 <?xml version="1.0"?>
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
 "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
-<!-- Generated 2016-9-7 19:55:56 by Hibernate Tools 3.5.0.Final -->
+<!-- Generated 2016-9-10 10:39:26 by Hibernate Tools 3.5.0.Final -->
 <hibernate-mapping>
     <class name="org.com.xsx.beans.DeviceInfoBean" table="DEVICEINFOBEAN">
-        <id name="deviceid" type="java.lang.String">
-            <column name="DEVICEID" />
+        <id name="id" type="java.lang.String">
+            <column name="ID" />
             <generator class="assigned" />
         </id>
-        <property name="devicename" type="java.lang.String">
-            <column name="DEVICENAME" />
+        <property name="daddr" type="java.lang.String">
+            <column name="DADDR" />
         </property>
-        <property name="makername" type="java.lang.String">
-            <column name="MAKERNAME" />
+        <property name="dname" type="java.lang.String">
+            <column name="DNAME" />
         </property>
-        <property name="makerphone" type="java.lang.String">
-            <column name="MAKERPHONE" />
+        <property name="dage" type="java.lang.String">
+            <column name="DAGE" />
         </property>
-        <property name="deviceaddr" type="java.lang.String">
-            <column name="DEVICEADDR" />
+        <property name="dsex" type="java.lang.String">
+            <column name="DSEX" />
         </property>
-        <property name="username" type="java.lang.String">
-            <column name="USERNAME" />
+        <property name="dphone" type="java.lang.String">
+            <column name="DPHONE" />
         </property>
-        <property name="userage" type="java.lang.String">
-            <column name="USERAGE" />
+        <property name="djob" type="java.lang.String">
+            <column name="DJOB" />
         </property>
-        <property name="usersex" type="java.lang.String">
-            <column name="USERSEX" />
+        <property name="ddesc" type="java.lang.String">
+            <column name="DDESC" />
         </property>
-        <property name="userphone" type="java.lang.String">
-            <column name="USERPHONE" />
+        <property name="dltime" type="java.lang.Long">
+            <column name="DLTIME" />
         </property>
-        <property name="userjob" type="java.lang.String">
-            <column name="USERJOB" />
-        </property>
-        <property name="userdesc" type="java.lang.String">
-            <column name="USERDESC" />
-        </property>
-        <property name="lasttime" type="java.lang.Long">
-            <column name="LASTTIME" />
-        </property>
-        <property name="isok" type="java.lang.Boolean">
-            <column name="ISOK" />
+        <property name="disok" type="java.lang.Boolean">
+            <column name="DISOK" />
         </property>
     </class>
 </hibernate-mapping>

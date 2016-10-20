@@ -18,7 +18,7 @@ public class DeviceInfoDao {
 	}
 	
 	public void UpdateDeviceLastTime(String deviceid){
-		String hql = "select p from DeviceInfoBean as p where p.deviceid = :mydeviceid";
+		String hql = "select p from DeviceInfoBean as p where p.id = :mydeviceid";
 		DeviceInfoBean deviceInfo;
 		
 		Query query = getSession().createQuery(hql);
@@ -30,11 +30,19 @@ public class DeviceInfoDao {
 			SaveOrUpdateDeviceInfo(deviceInfo);
 	}
 	
-	public DeviceInfoBean SaveOrUpdateDeviceInfo(DeviceInfoBean deviceInfo){
+	public Boolean SaveOrUpdateDeviceInfo(DeviceInfoBean deviceInfo){
 		
-		deviceInfo.setLasttime(System.currentTimeMillis());
+		DeviceInfoBean temp;
+		
+		deviceInfo.setDltime(System.currentTimeMillis());
+		
 		getSession().saveOrUpdate(deviceInfo);
-
-		return deviceInfo;
+		
+		temp = getSession().get(DeviceInfoBean.class, deviceInfo.getId());
+		
+		if(temp != null)
+			return true;
+		else
+			return false;
 	}
 }

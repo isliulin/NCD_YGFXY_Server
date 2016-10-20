@@ -12,15 +12,13 @@
 		http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-4.3.xsd">
 
 	<!-- 设置数据库配置文件位置 -->
-	 <context:property-placeholder location="classpath:SQL.properties"/>
+
 	 
 	 <bean id="MyDataSource" class="com.mchange.v2.c3p0.ComboPooledDataSource">
-	 	<property name="user" value="${user}"></property>
-		<property name="password" value="${password}"></property>
-		<property name="driverClass" value="${driverclass}"></property>
-		<property name="jdbcUrl" value="${jdbcurl}"></property>
-		<property name="initialPoolSize" value="${initPoolSize}"></property>
-		<property name="maxPoolSize" value="${maxPoolSize}"></property>
+	 	<property name="user" value="YGFXY"></property>
+		<property name="password" value="xsx127"></property>
+		<property name="driverClass" value="org.mariadb.jdbc.Driver"></property>
+		<property name="jdbcUrl" value="jdbc:mysql://127.0.0.1:3306/ygfxy"></property>
 	 </bean>
 	 
 	 <bean id="MySeesionFactory" class="org.springframework.orm.hibernate5.LocalSessionFactoryBean">
@@ -35,7 +33,7 @@
 	 
 	 <tx:advice id="MyTxAdvice" transaction-manager="MyTransActionManager">
 	 	<tx:attributes>
-			<tx:method name="get*" read-only="true"/>
+	 		<tx:method name="get*" read-only="true"/>
 			<tx:method name="*"/>
 		</tx:attributes>
 	 </tx:advice>

@@ -1,96 +1,75 @@
 package org.com.xsx.beans;
 
 public class DeviceInfoBean {
-	private String deviceid;				//设备id
-	private String devicename;				//设备名字
-	private String makername;				//制造商
-	private String makerphone;				//制造商联系方式
-	private String deviceaddr;				//设备使用地址
-	private String username;				//责任人
-	private String userage;					//责任人年龄
-	private String usersex;					//责任人性别
-	private String userphone;				//责任人联系方式
-	private String userjob;					//责任人职务
-	private String userdesc;				//责任人备注
-	private Long lasttime;				//设备上次连接时间
-	private Boolean isok;					//是否需要维修
-	
-	public String getDeviceid() {
-		return deviceid;
+	private String id;				//设备id
+	private String daddr;				//设备使用地址
+	private String dname;				//责任人
+	private String dage;					//责任人年龄
+	private String dsex;					//责任人性别
+	private String dphone;				//责任人联系方式
+	private String djob;					//责任人职务
+	private String ddesc;				//责任人备注
+	private Long dltime;				//设备上次连接时间
+	private Boolean disok;					//是否需要维修
+	public String getId() {
+		return id;
 	}
-	public void setDeviceid(String deviceid) {
-		this.deviceid = deviceid;
+	public void setId(String id) {
+		this.id = id;
 	}
-	public String getDevicename() {
-		return devicename;
+	public String getDaddr() {
+		return daddr;
 	}
-	public void setDevicename(String devicename) {
-		this.devicename = devicename;
+	public void setDaddr(String daddr) {
+		this.daddr = daddr;
 	}
-	public String getMakername() {
-		return makername;
+	public String getDname() {
+		return dname;
 	}
-	public void setMakername(String makername) {
-		this.makername = makername;
+	public void setDname(String dname) {
+		this.dname = dname;
 	}
-	public String getMakerphone() {
-		return makerphone;
+	public String getDage() {
+		return dage;
 	}
-	public void setMakerphone(String makerphone) {
-		this.makerphone = makerphone;
+	public void setDage(String dage) {
+		this.dage = dage;
 	}
-	public String getDeviceaddr() {
-		return deviceaddr;
+	public String getDsex() {
+		return dsex;
 	}
-	public void setDeviceaddr(String deviceaddr) {
-		this.deviceaddr = deviceaddr;
+	public void setDsex(String dsex) {
+		this.dsex = dsex;
 	}
-	public String getUsername() {
-		return username;
+	public String getDphone() {
+		return dphone;
 	}
-	public void setUsername(String username) {
-		this.username = username;
+	public void setDphone(String dphone) {
+		this.dphone = dphone;
 	}
-	public String getUserage() {
-		return userage;
+	public String getDjob() {
+		return djob;
 	}
-	public void setUserage(String userage) {
-		this.userage = userage;
+	public void setDjob(String djob) {
+		this.djob = djob;
 	}
-	public String getUsersex() {
-		return usersex;
+	public String getDdesc() {
+		return ddesc;
 	}
-	public void setUsersex(String usersex) {
-		this.usersex = usersex;
+	public void setDdesc(String ddesc) {
+		this.ddesc = ddesc;
 	}
-	public String getUserphone() {
-		return userphone;
+	public Long getDltime() {
+		return dltime;
 	}
-	public void setUserphone(String userphone) {
-		this.userphone = userphone;
+	public void setDltime(Long dltime) {
+		this.dltime = dltime;
 	}
-	public String getUserjob() {
-		return userjob;
+	public Boolean getDisok() {
+		return disok;
 	}
-	public void setUserjob(String userjob) {
-		this.userjob = userjob;
+	public void setDisok(Boolean disok) {
+		this.disok = disok;
 	}
-	public String getUserdesc() {
-		return userdesc;
-	}
-	public void setUserdesc(String userdesc) {
-		this.userdesc = userdesc;
-	}
-	public Long getLasttime() {
-		return lasttime;
-	}
-	public void setLasttime(Long lasttime) {
-		this.lasttime = lasttime;
-	}
-	public Boolean getIsok() {
-		return isok;
-	}
-	public void setIsok(Boolean isok) {
-		this.isok = isok;
-	}
+
 }

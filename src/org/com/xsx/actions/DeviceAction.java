@@ -1,14 +1,11 @@
 package org.com.xsx.actions;
 
-import java.util.Map;
-
-import org.apache.struts2.interceptor.RequestAware;
 import org.com.xsx.beans.DeviceInfoBean;
 import org.com.xsx.services.DeviceInfoService;
 
 import com.opensymphony.xwork2.ActionSupport;
 
-public class DeviceAction extends ActionSupport implements RequestAware {
+public class DeviceAction extends ActionSupport {
 
 	/**
 	 * 
@@ -17,18 +14,10 @@ public class DeviceAction extends ActionSupport implements RequestAware {
 
 	private DeviceInfoService deviceInfoService;
 	
-	private DeviceInfoBean deviceInfo;
+	private DeviceInfoBean dfo;
 	
-	private Map<String, Object> request;
 	private String resultstr;
 
-	public DeviceInfoBean getDeviceInfo() {
-		return deviceInfo;
-	}
-
-	public void setDeviceInfo(DeviceInfoBean deviceInfo) {
-		this.deviceInfo = deviceInfo;
-	}
 
 	public String getResultstr() {
 		return resultstr;
@@ -38,26 +27,28 @@ public class DeviceAction extends ActionSupport implements RequestAware {
 		this.resultstr = resultstr;
 	}
 
+	public DeviceInfoBean getDfo() {
+		return dfo;
+	}
+
+	public void setDfo(DeviceInfoBean dfo) {
+		this.dfo = dfo;
+	}
+
 	public void setDeviceInfoService(DeviceInfoService deviceInfoService) {
 		this.deviceInfoService = deviceInfoService;
 	}
 	
 	public String SaveDeviceInfo(){
-		DeviceInfoBean deviceInfotemp;
+		
+		resultstr = "myresult->"+ERROR;
+		
+		if(dfo.getId().length() == 0)
+			resultstr = "myresult->"+SUCCESS;
+		else if(deviceInfoService.SaveOrUpdateDeviceInfo(dfo))
+			resultstr = "myresult->"+SUCCESS;
 
-		deviceInfotemp = deviceInfoService.SaveOrUpdateDeviceInfo(deviceInfo);
-		resultstr = deviceInfo.getDeviceid();
-		if(deviceInfotemp == null)
-			return ERROR;
-		else{
-			request.put("massege", deviceInfotemp.getDeviceid());
-			return SUCCESS;
-		}
+		return SUCCESS;
 	}
 
-	@Override
-	public void setRequest(Map<String, Object> arg0) {
-		// TODO Auto-generated method stub
-		request = arg0;
-	}
 }

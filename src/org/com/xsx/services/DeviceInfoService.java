@@ -11,8 +11,8 @@ public class DeviceInfoService {
 		this.deviceInfoDao = deviceInfoDao;
 	}
 	
-	public DeviceInfoBean SaveOrUpdateDeviceInfo(DeviceInfoBean deviceInfo){
-		deviceInfoDao.SaveOrUpdateDeviceInfo(deviceInfo);
-		return deviceInfo;
+	public Boolean SaveOrUpdateDeviceInfo(DeviceInfoBean deviceInfo){
+		
+		return deviceInfoDao.SaveOrUpdateDeviceInfo(deviceInfo);
 	}
 }

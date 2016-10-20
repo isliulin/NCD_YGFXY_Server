@@ -1,0 +1,28 @@
+/* 
+* @Author: anchen
+* @Date:   2016-06-15 09:51:04
+* @Last Modified by:   anchen
+* @Last Modified time: 2016-07-03 20:00:27
+*/
+* { margin: 0; padding: 0;}
+.logoheader { position: fixed; left: 0; top: 0; width: 100%; background-color: #74B7B3; z-index: 12;}
+.logoheader .inner { width: 1200px; margin: 0 auto; overflow: hidden; zoom: 1;}
+.logoheader h1 { float: left;}
+.logoheader .inner h1 img { display: block; border: 0;}
+.logoheader .inner .nav { float: right; list-style-type: none; font-family: "Microsoft Yahei";}
+.logoheader .inner .nav li { float: left; margin-left: 5px;}
+.logoheader .inner .nav a { float: left; color: #000; text-decoration: none;}
+.logoheader .inner .nav a:hover { background-color: #555;}
+
+.large .inner { padding: 0px 0;}
+.large h1 img { height: 100px;}
+.large .nav { padding: 20px 0;}
+.large .nav a { height: 44px; padding: 0 20px; line-height: 44px; font-size: 18px;}
+.large .nav .cur { height: 44px; padding: 0 20px; line-height: 44px; font-size: 30px;}
+
+.small h1 img { height: 50px;}
+.small .nav { padding-top: 3px;}
+.small .nav a { height: 28px; padding: 10px 10px; line-height: 28px; font-size: 18px;}
+
+.logoheader, .logoheader .inner, .logoheader a, .logoheader img, .logoheader li { transition: all 1s; -moz-transition: all 1s; -webkit-transition: all 1s; -o-transition: all 1s;}
+

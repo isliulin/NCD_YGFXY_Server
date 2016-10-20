@@ -37,18 +37,6 @@
 		<property name="testDataService" ref="my_testdataService"></property>
 	</bean>
 	
-	<!-- 保存检测卡信息 -->
-	<bean id="my_testcardDao" class="org.com.xsx.daos.TestCardDao">
-		<property name="sessionFactory" ref="MySeesionFactory"></property>
-	</bean>
-	
-	<bean id="my_testcardService" class="org.com.xsx.services.TestCardService">
-		<property name="testCardDao" ref="my_testcardDao"></property>
-	</bean>
-	
-	<bean id="my_testcardAction" class="org.com.xsx.actions.TestCardAction" scope="prototype">
-		<property name="testCardService" ref="my_testcardService"></property>
-	</bean>
 	
 	<!-- 读取时间 -->
 	<bean id="my_readtimeService" class="org.com.xsx.services.ReadTimeService">
@@ -57,6 +45,32 @@
 	
 	<bean id="my_readtimeAction" class="org.com.xsx.actions.ReadTimeAction" scope="prototype">
 		<property name="readtimeservice" ref="my_readtimeService"></property>
+	</bean>
+	
+	<!-- 添加用户 -->
+	<bean id="my_userDao" class="org.com.xsx.daos.UserDao">
+		<property name="sessionFactory" ref="MySeesionFactory"></property>
+	</bean>
+	
+	<bean id="my_adduserService" class="org.com.xsx.services.AddUserService">
+		<property name="userDao" ref="my_userDao"></property>
+	</bean>
+	
+	<bean id="my_adduserAction" class="org.com.xsx.actions.AddUserAction" scope="prototype">
+		<property name="addUserService" ref="my_adduserService"></property>
+	</bean>
+	
+	<!-- 上传客户端软件文件 -->
+	<bean id="my_softDao" class="org.com.xsx.daos.SoftVersionDao">
+		<property name="sessionFactory" ref="MySeesionFactory"></property>
+	</bean>
+	
+	<bean id="my_softService" class="org.com.xsx.services.UpdateClientSoftService">
+		<property name="softVersionDao" ref="my_softDao"></property>
+	</bean>
+	
+	<bean id="my_upsoftAction" class="org.com.xsx.actions.UpdateClientSoftAction" scope="prototype">
+		<property name="updateClientSoftService" ref="my_softService"></property>
 	</bean>
 	
 </beans>

@@ -1,2 +1,2 @@
-<jsp:forward page="/WEB-INF/MyPages/UpLoad.jsp"/>
+<jsp:forward page="/WEB-INF/MyPages/Home.jsp"/>
 

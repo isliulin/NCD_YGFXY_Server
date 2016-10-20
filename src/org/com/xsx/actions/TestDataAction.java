@@ -1,5 +1,6 @@
 package org.com.xsx.actions;
 
+import java.util.List;
 import java.util.Map;
 
 import org.apache.struts2.interceptor.RequestAware;
@@ -8,7 +9,7 @@ import org.com.xsx.services.TestDataService;
 
 import com.opensymphony.xwork2.ActionSupport;
 
-public class TestDataAction extends ActionSupport implements RequestAware {
+public class TestDataAction extends ActionSupport {
 
 	/**
 	 * 
@@ -17,21 +18,18 @@ public class TestDataAction extends ActionSupport implements RequestAware {
 	
 	private TestDataService testDataService;
 	
-	private TestDataBean testDataBean;
+	private String resultstr;
+	
+	private TestDataBean tdata;
 	
 	//用于分段提交测试曲线
 	private String testcardid;
 	private String index;
 	private String series;
 	
-	private Map<String, Object> request;
 
-	public TestDataBean getTestDataBean() {
-		return testDataBean;
-	}
-
-	public void setTestDataBean(TestDataBean testDataBean) {
-		this.testDataBean = testDataBean;
+	public TestDataBean getTdata() {
+		return tdata;
 	}
 
 	public String getSeries() {
@@ -41,6 +39,11 @@ public class TestDataAction extends ActionSupport implements RequestAware {
 	public void setSeries(String series) {
 		this.series = series;
 	}
+
+	public void setTdata(TestDataBean tdata) {
+		this.tdata = tdata;
+	}
+
 
 	public String getIndex() {
 		return index;
@@ -58,32 +61,53 @@ public class TestDataAction extends ActionSupport implements RequestAware {
 		this.testcardid = testcardid;
 	}
 
+	public String getResultstr() {
+		return resultstr;
+	}
+
+	public void setResultstr(String resultstr) {
+		this.resultstr = resultstr;
+	}
+
 	public void setTestDataService(TestDataService testDataService) {
 		this.testDataService = testDataService;
 	}
 
-	@Override
-	public void setRequest(Map<String, Object> arg0) {
-		// TODO Auto-generated method stub
-		request = arg0;
+	public String SaveOrUpdateTestData(){
+		resultstr = "myresult->"+ERROR;
+		
+		if(testDataService.SaveOrUpdateTestData(tdata))
+			resultstr = "myresult->"+SUCCESS;
+
+		return SUCCESS;
 	}
 	
-	public String SaveOrUpdateTestData(){
-		if(testDataService.SaveOrUpdateTestCard(testDataBean) == null)
-			return ERROR;
-		else{
-			request.put("massege", testDataBean.getCardid());
-			return SUCCESS;
-		}
+	public String SaveOrUpdateTestCard(){
+		resultstr = "myresult->"+ERROR;
+		
+		System.out.println(tdata.getC_item());
+		
+		if(testDataService.SaveOrUpDateTestCard(tdata))
+			resultstr = "myresult->"+SUCCESS;
+
+		return SUCCESS;
 	}
 	
 	public String SaveOrUpdateTestDataSeries(){
-		if(testDataService.SaveTestDataSeries(testcardid, series, index)){
-			request.put("massege", testcardid);
-			return SUCCESS;
-		}
-		else
-			return ERROR;
+		resultstr = "myresult->"+ERROR;
+
+		if(testDataService.SaveTestDataSeries(testcardid, series, index))
+			resultstr = "myresult->"+SUCCESS;
+
+		return SUCCESS;
 	}
 
+	public String SaveOrUpdateTester(){
+		resultstr = "myresult->"+ERROR;
+
+		if(testDataService.SaveOrUpDateTester(tdata))
+			resultstr = "myresult->"+SUCCESS;
+
+		return SUCCESS;
+	}
 }
