@@ -18,7 +18,7 @@ public class SoftVersionDao {
 	
 	public Boolean UpdateSoftVersion(SoftVersion softVersion){
 		
-		softVersion.setSoftname("YGFXY_Client");
+		//softVersion.setSoftname("YGFXY_Client");
 		
 		getSession().saveOrUpdate(softVersion);
 		return true;

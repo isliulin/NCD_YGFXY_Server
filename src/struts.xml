@@ -77,9 +77,39 @@
 	<package name="xsx_struts" namespace="/xsx_struts" extends="struts-default" >
 		<!-- 上传客户端软件 -->
 		<action name="updateclientsoft" class="my_upsoftAction" method="UpdateClientSoftFile">
-			<param name="savePath">/upload</param>
 			<result name="success">/WEB-INF/MyPages/ClientUpdate.jsp</result>
 			<result name="error">/WEB-INF/MyPages/ClientUpdate.jsp</result>
 		</action>
+		
+		<!-- 下载客户端软件 -->
+		<action name="downloadclientsoft" class="my_upsoftAction" method="downloadClientFile">
+			<!-- 配置结果类型为stream的结果 -->
+	          <result name="success" type="stream">
+	             <!-- 指定下载文件的类型 -->
+	             <param name="contentType">application/zip</param>
+	             <!-- 指定下载文件的位置 -->
+	             <param name="inputName">clientFile</param>
+	             <param name="contentDisposition">attachment,filename="${updatefileFileName}"</param>
+	             
+	             <!-- 指定下载文件的缓冲大小 -->
+	             <param name="bufferSize">104857600</param>
+	          </result>
+		</action>
+		
+		<!-- 下载实验室客户端软件 -->
+		<action name="downloadlabsoft" class="my_upsoftAction" method="downloadClientFile">
+			<!-- 配置结果类型为stream的结果 -->
+	          <result name="success" type="stream">
+	             <!-- 指定下载文件的类型 -->
+	             <param name="contentType">application/zip</param>
+	             <!-- 指定下载文件的位置 -->
+	             <param name="inputName">clientLabFile</param>
+	             <param name="contentDisposition">attachment,filename="${updatefileFileName}"</param>
+	             
+	             <!-- 指定下载文件的缓冲大小 -->
+	             <param name="bufferSize">104857600</param>
+	          </result>
+		</action>
+		
 	</package>
 </struts>
