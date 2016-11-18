@@ -1,4 +1,4 @@
-package org.com.xsx.beans;
+package org.com.xsx.Domain;
 
 public class SoftVersion {
 	

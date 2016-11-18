@@ -1,6 +1,6 @@
 package org.com.xsx.daos;
 
-import org.com.xsx.beans.ReportManagerBean;
+import org.com.xsx.Domain.ManagerBean;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 
@@ -16,13 +16,13 @@ public class UserDao {
 		this.sessionFactory = sessionFactory;
 	}
 	
-	public boolean SaveOrUpdateUser(ReportManagerBean user){
+	public boolean SaveOrUpdateUser(ManagerBean user){
 		
-		ReportManagerBean tempuser;
+		ManagerBean tempuser;
 		
 		getSession().saveOrUpdate(user);
 		
-		tempuser = getSession().get(ReportManagerBean.class, user.getAccount());
+		tempuser = getSession().get(ManagerBean.class, user.getAccount());
 		
 		if(tempuser == null)
 			return false;

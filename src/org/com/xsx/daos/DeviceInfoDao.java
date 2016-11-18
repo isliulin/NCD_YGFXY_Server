@@ -1,6 +1,6 @@
 package org.com.xsx.daos;
 
-import org.com.xsx.beans.DeviceInfoBean;
+import org.com.xsx.Domain.DeviceBean;
 import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
@@ -18,31 +18,28 @@ public class DeviceInfoDao {
 	}
 	
 	public void UpdateDeviceLastTime(String deviceid){
-		String hql = "select p from DeviceInfoBean as p where p.id = :mydeviceid";
-		DeviceInfoBean deviceInfo;
+		String hql = "select p from DeviceBean as p where p.id = :mydeviceid";
+		DeviceBean deviceBean;
 		
 		Query query = getSession().createQuery(hql);
 		query.setParameter("mydeviceid", deviceid);
 		
-		deviceInfo = (DeviceInfoBean)query.uniqueResult();
+		deviceBean = (DeviceBean)query.uniqueResult();
 		
-		if(deviceInfo != null)
-			SaveOrUpdateDeviceInfo(deviceInfo);
+		if(deviceBean != null)
+			SaveOrUpdateDeviceInfo(deviceBean);
 	}
 	
-	public Boolean SaveOrUpdateDeviceInfo(DeviceInfoBean deviceInfo){
+	public Boolean SaveOrUpdateDeviceInfo(DeviceBean deviceBean){
 		
-		DeviceInfoBean temp;
+		deviceBean.setDltime(System.currentTimeMillis());
 		
-		deviceInfo.setDltime(System.currentTimeMillis());
-		
-		getSession().saveOrUpdate(deviceInfo);
-		
-		temp = getSession().get(DeviceInfoBean.class, deviceInfo.getId());
-		
-		if(temp != null)
+		try {
+			getSession().saveOrUpdate(deviceBean);
 			return true;
-		else
+		} catch (Exception e) {
+			// TODO: handle exception
 			return false;
+		}
 	}
 }

@@ -7,7 +7,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
-import org.com.xsx.beans.TestDataBean;
+import org.com.xsx.Domain.TestDataBean;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 
@@ -31,7 +31,7 @@ public class TestDataDao {
 
 		TestDataBean temp;
 		
-		testDataBean.setR_uptime(new Timestamp(System.currentTimeMillis()));
+		testDataBean.setUptime(new Timestamp(System.currentTimeMillis()));
 		getSession().saveOrUpdate(testDataBean);
 
 		temp = getSession().get(TestDataBean.class, testDataBean.getCid());
@@ -43,12 +43,12 @@ public class TestDataDao {
 	
 	public Boolean SaveOrUpDateTestCard(TestDataBean testDataBean){
 		TestDataBean temp = getSession().get(TestDataBean.class, testDataBean.getCid());
-		
+/*		
 		if(temp == null)
 			return false;
 		else{
-			temp.setC_item(testDataBean.getC_item());
-			temp.setC_n_v(testDataBean.getC_n_v());
+			temp.setCitem(testDataBean.getCitem());
+			temp.setC_n_v(testDataBean.get());
 			temp.setC_l_v(testDataBean.getC_l_v());
 			temp.setC_h_v(testDataBean.getC_h_v());
 			temp.setC_dw(testDataBean.getC_dw());
@@ -65,17 +65,18 @@ public class TestDataDao {
 			temp.setC_c_l(testDataBean.getC_c_l());
 			temp.setC_outt(testDataBean.getC_outt());
 			
-			temp.setR_uptime(new Timestamp(System.currentTimeMillis()));
+			temp.setUptime(new Timestamp(System.currentTimeMillis()));
 			
 			SaveOrUpdateTestData(temp);
 
 			return true;
-		}
+		}*/
+		return true;
 	}
 	
 	public Boolean SaveTestDataSeries(String testcardid, String series, String index){
 
-		TestDataBean temp = getSession().get(TestDataBean.class, testcardid);
+/*		TestDataBean temp = getSession().get(TestDataBean.class, testcardid);
 
 		if(temp == null)
 			return false;
@@ -108,12 +109,13 @@ public class TestDataDao {
 			SaveOrUpdateTestData(temp);
 			
 			return true;
-		}
+		}*/
+		return true;
 	}
 	
 	public Boolean SaveOrUpDateTester(TestDataBean testDataBean){
 		TestDataBean temp = getSession().get(TestDataBean.class, testDataBean.getCid());
-		
+/*		
 		if(temp == null)
 			return false;
 		else{
@@ -129,6 +131,7 @@ public class TestDataDao {
 			SaveOrUpdateTestData(temp);
 
 			return true;
-		}
+		}*/
+		return true;
 	}
 }

@@ -1,6 +1,6 @@
 package org.com.xsx.services;
 
-import org.com.xsx.beans.SoftVersion;
+import org.com.xsx.Domain.SoftVersion;
 import org.com.xsx.daos.SoftVersionDao;
 
 public class UpdateClientSoftService {

@@ -4,7 +4,7 @@ import java.util.List;
 import java.util.Map;
 
 import org.apache.struts2.interceptor.RequestAware;
-import org.com.xsx.beans.TestDataBean;
+import org.com.xsx.Domain.TestDataBean;
 import org.com.xsx.services.TestDataService;
 
 import com.opensymphony.xwork2.ActionSupport;
@@ -84,8 +84,6 @@ public class TestDataAction extends ActionSupport {
 	
 	public String SaveOrUpdateTestCard(){
 		resultstr = "myresult->"+ERROR;
-		
-		System.out.println(tdata.getC_item());
 		
 		if(testDataService.SaveOrUpDateTestCard(tdata))
 			resultstr = "myresult->"+SUCCESS;

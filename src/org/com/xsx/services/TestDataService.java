@@ -2,7 +2,7 @@ package org.com.xsx.services;
 
 import java.util.List;
 
-import org.com.xsx.beans.TestDataBean;
+import org.com.xsx.Domain.TestDataBean;
 import org.com.xsx.daos.TestDataDao;
 
 public class TestDataService {

@@ -1,6 +1,6 @@
 package org.com.xsx.daos;
 
-import org.com.xsx.beans.SoftVersion;
+import org.com.xsx.Domain.SoftVersion;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 

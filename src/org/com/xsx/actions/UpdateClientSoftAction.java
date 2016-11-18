@@ -9,7 +9,7 @@ import java.net.URISyntaxException;
 import java.util.regex.Pattern;
 
 import org.apache.commons.codec.digest.DigestUtils;
-import org.com.xsx.beans.SoftVersion;
+import org.com.xsx.Domain.SoftVersion;
 import org.com.xsx.services.UpdateClientSoftService;
 
 import com.opensymphony.xwork2.ActionSupport;
@@ -82,7 +82,6 @@ public class UpdateClientSoftAction extends ActionSupport {
 			e.printStackTrace();
 			return null;
 		}
-
 	}
 
 	public void setSavePath(String savePath) {

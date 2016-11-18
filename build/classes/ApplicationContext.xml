@@ -15,16 +15,16 @@
 
 	 
 	 <bean id="MyDataSource" class="com.mchange.v2.c3p0.ComboPooledDataSource">
-	 	<property name="user" value="YGFXY"></property>
+	 	<property name="user" value="root"></property>
 		<property name="password" value="xsx127"></property>
-		<property name="driverClass" value="org.mariadb.jdbc.Driver"></property>
+		<property name="driverClass" value="com.mysql.jdbc.Driver"></property>
 		<property name="jdbcUrl" value="jdbc:mysql://127.0.0.1:3306/ygfxy"></property>
 	 </bean>
 	 
 	 <bean id="MySeesionFactory" class="org.springframework.orm.hibernate5.LocalSessionFactoryBean">
 	 	<property name="dataSource" ref="MyDataSource"></property>
 		<property name="configLocation" value="classpath:hibernate.cfg.xml"></property>
-		<property name="mappingLocations" value="classpath:org/com/xsx/beans/*.hbm.xml"></property>
+		<property name="mappingLocations" value="classpath:org/com/xsx/Domain/*.hbm.xml"></property>
 	 </bean>
 	 
 	 <bean id="MyTransActionManager" class="org.springframework.orm.hibernate5.HibernateTransactionManager">

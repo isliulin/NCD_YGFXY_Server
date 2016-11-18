@@ -1,6 +1,6 @@
 package org.com.xsx.actions;
 
-import org.com.xsx.beans.DeviceInfoBean;
+import org.com.xsx.Domain.DeviceBean;
 import org.com.xsx.services.DeviceInfoService;
 
 import com.opensymphony.xwork2.ActionSupport;
@@ -14,7 +14,7 @@ public class DeviceAction extends ActionSupport {
 
 	private DeviceInfoService deviceInfoService;
 	
-	private DeviceInfoBean dfo;
+	private DeviceBean dfo;
 	
 	private String resultstr;
 
@@ -27,11 +27,11 @@ public class DeviceAction extends ActionSupport {
 		this.resultstr = resultstr;
 	}
 
-	public DeviceInfoBean getDfo() {
+	public DeviceBean getDfo() {
 		return dfo;
 	}
 
-	public void setDfo(DeviceInfoBean dfo) {
+	public void setDfo(DeviceBean dfo) {
 		this.dfo = dfo;
 	}
 

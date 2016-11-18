@@ -1,6 +1,6 @@
 package org.com.xsx.actions;
 
-import org.com.xsx.beans.ReportManagerBean;
+import org.com.xsx.Domain.ManagerBean;
 import org.com.xsx.services.AddUserService;
 
 import com.opensymphony.xwork2.ActionSupport;
@@ -9,15 +9,15 @@ public class AddUserAction extends ActionSupport {
 	
 	private AddUserService addUserService;
 	
-	private ReportManagerBean user;
+	private ManagerBean user;
 
 	private String resultstr;
 	
-	public ReportManagerBean getUser() {
+	public ManagerBean getUser() {
 		return user;
 	}
 
-	public void setUser(ReportManagerBean user) {
+	public void setUser(ManagerBean user) {
 		this.user = user;
 	}
 

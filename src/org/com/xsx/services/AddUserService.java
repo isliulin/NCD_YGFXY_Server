@@ -1,6 +1,6 @@
 package org.com.xsx.services;
 
-import org.com.xsx.beans.ReportManagerBean;
+import org.com.xsx.Domain.ManagerBean;
 import org.com.xsx.daos.UserDao;
 
 public class AddUserService {
@@ -11,7 +11,7 @@ public class AddUserService {
 		this.userDao = userDao;
 	}
 	
-	public boolean SaveOrUpdateUser(ReportManagerBean user){
+	public boolean SaveOrUpdateUser(ManagerBean user){
 		return userDao.SaveOrUpdateUser(user);
 	}
 }
