@@ -50,7 +50,7 @@ public class ReadTimeAction extends ActionSupport {
 		
 		resultstr = "myresult->"+matter1.format(new Date());
 		
-		readtimeservice.UpdateDeviceLastTime(deviceid);
+	//	readtimeservice.UpdateDeviceLastTime(deviceid);
 		
 		return SUCCESS;
 	}

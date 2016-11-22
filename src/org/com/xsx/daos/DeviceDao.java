@@ -1,12 +1,10 @@
 package org.com.xsx.daos;
 
 import org.com.xsx.Domain.DeviceBean;
-import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 
-public class DeviceInfoDao {
-	
+public class DeviceDao{
 	private SessionFactory sessionFactory;
 	
 	private Session getSession() {
@@ -17,20 +15,8 @@ public class DeviceInfoDao {
 		this.sessionFactory = sessionFactory;
 	}
 	
-	public void UpdateDeviceLastTime(String deviceid){
-		String hql = "select p from DeviceBean as p where p.id = :mydeviceid";
-		DeviceBean deviceBean;
-		
-		Query query = getSession().createQuery(hql);
-		query.setParameter("mydeviceid", deviceid);
-		
-		deviceBean = (DeviceBean)query.uniqueResult();
-		
-		if(deviceBean != null)
-			SaveOrUpdateDeviceInfo(deviceBean);
-	}
-	
-	public Boolean SaveOrUpdateDeviceInfo(DeviceBean deviceBean){
+	//上传设备信息
+	public Boolean SaveOrUpdateDeviceInfoDao(DeviceBean deviceBean) {
 		
 		deviceBean.setDltime(System.currentTimeMillis());
 		

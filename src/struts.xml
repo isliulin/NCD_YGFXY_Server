@@ -3,65 +3,72 @@
 "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
 "http://struts.apache.org/dtds/struts-2.0.dtd">
 <struts>
-    
+
     <constant name="struts.custom.i18n.resources" value="mess"/>
 	<constant name="struts.i18n.encoding" value="GBK"/>
-	
+
     <constant name="struts.enable.DynamicMethodInvocation" value="true"/>
-    
+
     <constant name="struts.multipart.maxSize" value="104857600"/>
 	<!-- Action所在包定义 -->
 	<package name="default" namespace="/" extends="json-default" >
-	
+
 		<!-- 设备上传设备信息 -->
-		<action name="up_info" class="my_deviceinfoAction" method="SaveDeviceInfo">
+		<action name="d_info" class="my_deviceinfoAction" method="SaveDeviceInfoAction">
 			<result type="json">
 				<param name="root">resultstr</param>
 			</result>
 		</action>
 		
+		<!-- 设备上传设备操作人信息 -->
+		<action name="d_user" class="my_deviceinfoAction" method="SaveDeviceUserInfoAction">
+			<result type="json">
+				<param name="root">resultstr</param>
+			</result>
+		</action>
+
 		<!-- 设备上传测试数据 -->
 		<action name="updata" class="my_testdataAction" method="SaveOrUpdateTestData">
 			<result type="json">
 				<param name="root">resultstr</param>
 			</result>
 		</action>
-		
+
 		<!-- 设备上传测试数据的检测卡信息 -->
 		<action name="upcard" class="my_testdataAction" method="SaveOrUpdateTestCard">
 			<result type="json">
 				<param name="root">resultstr</param>
 			</result>
 		</action>
-		
+
 		<!-- 设备上传测试数据的曲线 -->
 		<action name="upseries" class="my_testdataAction" method="SaveOrUpdateTestDataSeries">
 			<result type="json">
 				<param name="root">resultstr</param>
 			</result>
 		</action>
-		
+
 		<!-- 设备上传测试数据的测试人 -->
 		<action name="uptester" class="my_testdataAction" method="SaveOrUpdateTester">
 			<result type="json">
 				<param name="root">resultstr</param>
 			</result>
 		</action>
-		
+
 		<!-- 设备读取时间 -->
 		<action name="rtime" class="my_readtimeAction" method="ReadTimeAction">
 			<result type="json">
 				<param name="root">resultstr</param>
 			</result>
 		</action>
-		
+
 		<!-- 添加用户 -->
 		<action name="adduser" class="my_adduserAction" method="AddAUser">
 			<result type="json">
 				<param name="root">resultstr</param>
 			</result>
 		</action>
-		
+
 		<!-- 上传客户端软件
 		<action name="updateclientsoft" class="my_upsoftAction" method="UpdateClientSoftFile">
 			<result name="success">/WEB-INF/MyPages/ClientUpdate.jsp</result>
@@ -72,7 +79,7 @@
 			<result>/WEB-INF/MyPages/{1}.jsp</result>
 		</action>
 	</package>
-	
+
 	<!-- Action所在包定义 -->
 	<package name="xsx_struts" namespace="/xsx_struts" extends="struts-default" >
 		<!-- 上传客户端软件 -->
@@ -80,7 +87,7 @@
 			<result name="success">/WEB-INF/MyPages/ClientUpdate.jsp</result>
 			<result name="error">/WEB-INF/MyPages/ClientUpdate.jsp</result>
 		</action>
-		
+
 		<!-- 下载客户端软件 -->
 		<action name="downloadclientsoft" class="my_upsoftAction" method="downloadClientFile">
 			<!-- 配置结果类型为stream的结果 -->
@@ -90,12 +97,12 @@
 	             <!-- 指定下载文件的位置 -->
 	             <param name="inputName">clientFile</param>
 	             <param name="contentDisposition">attachment,filename="${updatefileFileName}"</param>
-	             
+
 	             <!-- 指定下载文件的缓冲大小 -->
 	             <param name="bufferSize">104857600</param>
 	          </result>
 		</action>
-		
+
 		<!-- 下载实验室客户端软件 -->
 		<action name="downloadlabsoft" class="my_upsoftAction" method="downloadClientFile">
 			<!-- 配置结果类型为stream的结果 -->
@@ -105,11 +112,11 @@
 	             <!-- 指定下载文件的位置 -->
 	             <param name="inputName">clientLabFile</param>
 	             <param name="contentDisposition">attachment,filename="${updatefileFileName}"</param>
-	             
+
 	             <!-- 指定下载文件的缓冲大小 -->
 	             <param name="bufferSize">104857600</param>
 	          </result>
 		</action>
-		
+
 	</package>
 </struts>
