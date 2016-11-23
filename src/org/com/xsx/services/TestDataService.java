@@ -1,7 +1,5 @@
 package org.com.xsx.services;
 
-import java.util.List;
-
 import org.com.xsx.Domain.TestDataBean;
 import org.com.xsx.daos.TestDataDao;
 
@@ -18,15 +16,8 @@ public class TestDataService {
 		return testDataDao.SaveOrUpdateTestData(testDataBean);
 	}
 	
-	public Boolean SaveOrUpDateTestCard(TestDataBean testDataBean){
-		return testDataDao.SaveOrUpDateTestCard(testDataBean);
-	}
-	
-	public Boolean SaveTestDataSeries(String testcardid, String series, String index){
+	public Boolean SaveTestDataSeries(String testcardid, String series, Integer index){
 		return testDataDao.SaveTestDataSeries(testcardid, series, index);
 	}
 	
-	public Boolean SaveOrUpDateTester(TestDataBean testDataBean){
-		return testDataDao.SaveOrUpDateTester(testDataBean);
-	}
 }

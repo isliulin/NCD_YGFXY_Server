@@ -19,11 +19,11 @@
 
                   <dt></dt>
 
-                  <dd><a href="UpDeviceInfo.action" target="_blank"><span>设备数据上传</span></a></dd>
+                  <dd><a href="UpDeviceInfo.action" target="_self"><span>设备数据上传</span></a></dd>
 
-                  <dd><a href="" target="_blank"><span>试剂卡上传</span></a></dd>
+                  <dd><a href="UpCardInfo.action" target="_self"><span>试剂卡上传</span></a></dd>
 
-                  <dd><a href="" target="_blank"><span>测试数据上传</span></a></dd>
+                  <dd><a href="UpTestDataInfo.action" target="_self"><span>测试数据上传</span></a></dd>
 
               </dl>
           </li>

@@ -1,5 +1,8 @@
 package org.com.xsx.actions;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
 import org.com.xsx.Domain.DeviceBean;
 import org.com.xsx.Domain.DevicerBean;
 import org.com.xsx.services.DeviceService;
@@ -70,7 +73,7 @@ public class DeviceAction extends ActionSupport {
 
 
 	//提交设备信息
-	public String SaveDeviceInfoAction(){
+	public String SaveOrUpdateDeviceInfoAction(){
 		
 		resultstr = "myresult->"+ERROR;
 		
@@ -81,7 +84,26 @@ public class DeviceAction extends ActionSupport {
 	}
 	
 	//提交设备操作人信息
-	public String SaveDeviceUserInfoAction() {
+	public String SaveOrUpdateDevicerInfoAction() {
+
+		resultstr = "myresult->"+ERROR;
 		
+		if(deviceService.SaveOrUpdateDevicerInfoService(devicerBean))
+			resultstr = "myresult->"+SUCCESS;
+
+		return SUCCESS;
+	}
+	
+	//更新设备在线时间
+	public String UpDateDeviceTimeAction() {
+		
+		SimpleDateFormat     matter1     =     new     SimpleDateFormat( "yyyyMMddHHmmss");  
+		
+		resultstr = "myresult->"+ERROR;
+		
+		if(deviceService.UpDateDeviceTimeService(deviceBean.getId()))
+			resultstr = "myresult->"+matter1.format(new Date());
+
+		return SUCCESS;
 	}
 }

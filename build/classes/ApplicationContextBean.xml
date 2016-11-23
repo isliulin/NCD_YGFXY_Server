@@ -11,20 +11,62 @@
 		http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-4.3.xsd
 		http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-4.3.xsd">
 
-	<!-- 保存设备信息 -->
-	<bean id="my_deviceinfoDao" class="org.com.xsx.daos.DeviceDao">
+	<!-- 基本操作DAO -->
+	<bean id="my_basicDao" class="org.com.xsx.daos.BasicHibernateDao">
+		<property name="sessionFactory" ref="MySeesionFactory"></property>
+	</bean>
+
+	<!-- 设备操作人DAO -->
+	<bean id="my_devicerDao" class="org.com.xsx.daos.DevicerDao">
+		<property name="sessionFactory" ref="MySeesionFactory"></property>
+		<property name="basicHibernateDao" ref="my_basicDao"></property>
+	</bean>
+	
+	<!-- 设备信息 DAO-->
+	<bean id="my_deviceDao" class="org.com.xsx.daos.DeviceDao">
+		<property name="sessionFactory" ref="MySeesionFactory"></property>
+		<property name="devicerDao" ref="my_devicerDao"></property>
+	</bean>
+	
+	<!-- 试剂卡DAO -->
+	<bean id="my_cardDao" class="org.com.xsx.daos.CardDao">
 		<property name="sessionFactory" ref="MySeesionFactory"></property>
 	</bean>
 	
-	<bean id="my_deviceinfoService" class="org.com.xsx.services.DeviceService">
-		<property name="deviceDao" ref="my_deviceinfoDao"></property>
+	<!-- 测试数据DAO -->
+	<bean id="my_testdataDao" class="org.com.xsx.daos.TestDataDao">
+		<property name="sessionFactory" ref="MySeesionFactory"></property>
 	</bean>
 	
-	<bean id="my_deviceinfoAction" class="org.com.xsx.actions.DeviceAction" scope="prototype">
-		<property name="deviceService" ref="my_deviceinfoService"></property>
+	<!-- 设备操作service -->
+	<bean id="my_deviceService" class="org.com.xsx.services.DeviceService">
+		<property name="deviceDao" ref="my_deviceDao"></property>
+		<property name="devicerDao" ref="my_devicerDao"></property>
 	</bean>
 	
+	<!-- 试剂卡操作service -->
+	<bean id="my_cardService" class="org.com.xsx.services.CardService">
+		<property name="cardDao" ref="my_cardDao"></property>
+	</bean>
 	
+	<!-- 测试数据操作service -->
+	<bean id="my_testdataService" class="org.com.xsx.services.TestDataService">
+		<property name="testDataDao" ref="my_testdataDao"></property>
+	</bean>
+	
+	<bean id="my_deviceAction" class="org.com.xsx.actions.DeviceAction" scope="prototype">
+		<property name="deviceService" ref="my_deviceService"></property>
+	</bean>
+	
+	<!-- 试剂卡操作action -->
+	<bean id="my_cardAction" class="org.com.xsx.actions.CardAction" scope="prototype">
+		<property name="cardService" ref="my_cardService"></property>
+	</bean>
+	
+	<!-- 测试数据操作action -->
+	<bean id="my_testdataAction" class="org.com.xsx.actions.TestDataAction" scope="prototype">
+		<property name="testDataService" ref="my_testdataService"></property>
+	</bean>
 	
 	<!-- 上传客户端软件文件 -->
 	<bean id="my_softDao" class="org.com.xsx.daos.SoftVersionDao">

@@ -14,56 +14,42 @@
 	<package name="default" namespace="/" extends="json-default" >
 
 		<!-- 设备上传设备信息 -->
-		<action name="d_info" class="my_deviceinfoAction" method="SaveDeviceInfoAction">
+		<action name="d_info" class="my_deviceAction" method="SaveOrUpdateDeviceInfoAction">
 			<result type="json">
 				<param name="root">resultstr</param>
 			</result>
 		</action>
 		
 		<!-- 设备上传设备操作人信息 -->
-		<action name="d_user" class="my_deviceinfoAction" method="SaveDeviceUserInfoAction">
+		<action name="d_user" class="my_deviceAction" method="SaveOrUpdateDevicerInfoAction">
 			<result type="json">
 				<param name="root">resultstr</param>
 			</result>
 		</action>
-
-		<!-- 设备上传测试数据 -->
-		<action name="updata" class="my_testdataAction" method="SaveOrUpdateTestData">
+		
+		<!-- 设备读取时间 -->
+		<action name="rtime" class="my_deviceAction" method="UpDateDeviceTimeAction">
 			<result type="json">
 				<param name="root">resultstr</param>
 			</result>
 		</action>
 
 		<!-- 设备上传测试数据的检测卡信息 -->
-		<action name="upcard" class="my_testdataAction" method="SaveOrUpdateTestCard">
+		<action name="upcard" class="my_cardAction" method="SaveOrUpdateCardAction">
 			<result type="json">
 				<param name="root">resultstr</param>
 			</result>
 		</action>
-
-		<!-- 设备上传测试数据的曲线 -->
-		<action name="upseries" class="my_testdataAction" method="SaveOrUpdateTestDataSeries">
+		
+		<!-- 设备上传测试数据信息 -->
+		<action name="uptestdata" class="my_testdataAction" method="SaveOrUpdateTestData">
 			<result type="json">
 				<param name="root">resultstr</param>
 			</result>
 		</action>
-
-		<!-- 设备上传测试数据的测试人 -->
-		<action name="uptester" class="my_testdataAction" method="SaveOrUpdateTester">
-			<result type="json">
-				<param name="root">resultstr</param>
-			</result>
-		</action>
-
-		<!-- 设备读取时间 -->
-		<action name="rtime" class="my_readtimeAction" method="ReadTimeAction">
-			<result type="json">
-				<param name="root">resultstr</param>
-			</result>
-		</action>
-
-		<!-- 添加用户 -->
-		<action name="adduser" class="my_adduserAction" method="AddAUser">
+		
+		<!-- 设备上传测试曲线数据信息 -->
+		<action name="upseriesdata" class="my_testdataAction" method="SaveOrUpdateTestDataSeries">
 			<result type="json">
 				<param name="root">resultstr</param>
 			</result>

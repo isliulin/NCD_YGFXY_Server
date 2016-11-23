@@ -23,8 +23,7 @@ public class TestDataAction extends ActionSupport {
 	private TestDataBean tdata;
 	
 	//用于分段提交测试曲线
-	private String testcardid;
-	private String index;
+	private Integer sindex;
 	private String series;
 	
 
@@ -32,33 +31,24 @@ public class TestDataAction extends ActionSupport {
 		return tdata;
 	}
 
+	public void setTdata(TestDataBean tdata) {
+		this.tdata = tdata;
+	}
+
+	public Integer getSindex() {
+		return sindex;
+	}
+
+	public void setSindex(Integer sindex) {
+		this.sindex = sindex;
+	}
+	
 	public String getSeries() {
 		return series;
 	}
 
 	public void setSeries(String series) {
 		this.series = series;
-	}
-
-	public void setTdata(TestDataBean tdata) {
-		this.tdata = tdata;
-	}
-
-
-	public String getIndex() {
-		return index;
-	}
-
-	public void setIndex(String index) {
-		this.index = index;
-	}
-
-	public String getTestcardid() {
-		return testcardid;
-	}
-
-	public void setTestcardid(String testcardid) {
-		this.testcardid = testcardid;
 	}
 
 	public String getResultstr() {
@@ -82,28 +72,10 @@ public class TestDataAction extends ActionSupport {
 		return SUCCESS;
 	}
 	
-	public String SaveOrUpdateTestCard(){
-		resultstr = "myresult->"+ERROR;
-		
-		if(testDataService.SaveOrUpDateTestCard(tdata))
-			resultstr = "myresult->"+SUCCESS;
-
-		return SUCCESS;
-	}
-	
 	public String SaveOrUpdateTestDataSeries(){
 		resultstr = "myresult->"+ERROR;
 
-		if(testDataService.SaveTestDataSeries(testcardid, series, index))
-			resultstr = "myresult->"+SUCCESS;
-
-		return SUCCESS;
-	}
-
-	public String SaveOrUpdateTester(){
-		resultstr = "myresult->"+ERROR;
-
-		if(testDataService.SaveOrUpDateTester(tdata))
+		if(testDataService.SaveTestDataSeries(tdata.getCid(), series, sindex))
 			resultstr = "myresult->"+SUCCESS;
 
 		return SUCCESS;
