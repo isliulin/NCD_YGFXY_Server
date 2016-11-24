@@ -54,6 +54,13 @@
 				<param name="root">resultstr</param>
 			</result>
 		</action>
+		
+		<!-- 添加审核人 -->
+		<action name="addmanager" class="my_managerAction" method="AddManagerAction">
+			<result type="json">
+				<param name="root">resultstr</param>
+			</result>
+		</action>
 
 		<!-- 上传客户端软件
 		<action name="updateclientsoft" class="my_upsoftAction" method="UpdateClientSoftFile">

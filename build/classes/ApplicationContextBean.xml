@@ -38,6 +38,11 @@
 		<property name="sessionFactory" ref="MySeesionFactory"></property>
 	</bean>
 	
+	<!-- 审核人DAO -->
+	<bean id="my_managerDao" class="org.com.xsx.daos.ManagerDao">
+		<property name="sessionFactory" ref="MySeesionFactory"></property>
+	</bean>
+	
 	<!-- 设备操作service -->
 	<bean id="my_deviceService" class="org.com.xsx.services.DeviceService">
 		<property name="deviceDao" ref="my_deviceDao"></property>
@@ -54,6 +59,11 @@
 		<property name="testDataDao" ref="my_testdataDao"></property>
 	</bean>
 	
+	<!-- 审核人service -->
+	<bean id="my_managerService" class="org.com.xsx.services.ManagerService">
+		<property name="managerDao" ref="my_managerDao"></property>
+	</bean>
+	
 	<bean id="my_deviceAction" class="org.com.xsx.actions.DeviceAction" scope="prototype">
 		<property name="deviceService" ref="my_deviceService"></property>
 	</bean>
@@ -66,6 +76,11 @@
 	<!-- 测试数据操作action -->
 	<bean id="my_testdataAction" class="org.com.xsx.actions.TestDataAction" scope="prototype">
 		<property name="testDataService" ref="my_testdataService"></property>
+	</bean>
+	
+	<!-- 审核人action -->
+	<bean id="my_managerAction" class="org.com.xsx.actions.ManagerAction" scope="prototype">
+		<property name="managerService" ref="my_managerService"></property>
 	</bean>
 	
 	<!-- 上传客户端软件文件 -->

@@ -4,7 +4,7 @@ import org.com.xsx.Domain.ManagerBean;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 
-public class UserDao {
+public class ManagerDao {
 	
 	private SessionFactory sessionFactory;
 	
@@ -16,17 +16,14 @@ public class UserDao {
 		this.sessionFactory = sessionFactory;
 	}
 	
-	public boolean SaveOrUpdateUser(ManagerBean user){
+	public boolean SaveOrUpdateManagerDao(ManagerBean user){
 		
-		ManagerBean tempuser;
-		
-		getSession().saveOrUpdate(user);
-		
-		tempuser = getSession().get(ManagerBean.class, user.getAccount());
-		
-		if(tempuser == null)
-			return false;
-		else
+		try {
+			getSession().saveOrUpdate(user);
 			return true;
+		} catch (Exception e) {
+			// TODO: handle exception
+			return false;
+		}
 	}
 }

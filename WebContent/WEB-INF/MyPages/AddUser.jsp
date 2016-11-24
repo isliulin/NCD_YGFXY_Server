@@ -11,23 +11,39 @@
 <script type="text/javascript">
 
 	//添加用户
-	function uploaddeviceinfo(){
-
+	function adduser(){
+		var devicestr = "[";
+		var element=document.getElementById("devicelist");
+		var elementlist = element.children;
+		
+		for (var i=0;i<elementlist.length-1;i++)
+			{
+				var node = elementlist[i].firstChild;
+				devicestr += "\"";
+				devicestr += node.value;
+				devicestr += "\",";
+			}
+		var node = elementlist[elementlist.length-1].firstChild;
+		devicestr += "\"";
+		devicestr += node.value;
+		devicestr += "\"]";
+		
 		var json = {
-				"dfo.id": $("#d_id").val(),
-		        "dfo.daddr": $("#d_addr").val(),
-		        "dfo.dname": $("#d_name").val(),
-		        "dfo.dage": $("#d_age").val(),
-		        "dfo.dsex": $('input:radio[name="d_sex"]:checked').val(),
-		        "dfo.dphone": $("#d_phone").val(),
-		        "dfo.djob": $("#d_job").val(),
-		        "dfo.ddesc": $("#d_desc").val(),
-		        "dfo.disok": $('input:radio[name="d_status"]:checked').val()
+				"managerBean.account": $("#account").val(),
+		        "managerBean.password": $("#password").val(),
+		        "managerBean.name": $("#name").val(),
+		        "managerBean.age": $("#age").val(),
+		        "managerBean.sex": $('input:radio[name="sex"]:checked').val(),
+		        "managerBean.phone": $("#phone").val(),
+		        "managerBean.job": $("#job").val(),
+		        "managerBean.dsctext": $("#desc").val(),
+		        "managerBean.devicelist": devicestr,
+		        "ncd_password": $("#ncdword").val()
 		    };
 
 		$.ajax(
 			{
-				url : "up_info.action",
+				url : "addmanager.action",
 				type : "POST",
 				data : json,
 				success : function(data, testStatus){
@@ -39,70 +55,42 @@
 
 	//添加设备栏
 	function adddevicefield(){
+	
+		var element=document.getElementById("devicelist");
 
-		var para=document.createElement("p");
-		var node=document.createTextNode("This is new.");
-		para.appendChild(node);
-
-		var element=document.getElementById("div1");
-		var child=document.getElementById("p1");
-		element.insertBefore(para,child);
+		var id = "device-";
+		id += element.children.length;;
+		
+		var li=document.createElement("dt");
+		var input=document.createElement("input");
+		input.setAttribute('id', id);
+		li.appendChild(input);
+		
+		var child=element.firstChild;
+		element.insertBefore(li,child);
 	}
 </script>
 </head>
 <body>
-	<table border="1" cellpadding="0" cellspacing="0">
-		<tr>
-			<th colspan="4" bgcolor="lightblue">添加用户</th>
-		</tr>
-		  
-		<tr>
-			<th >用户账户</th>
-		    <td ><input id="d_id" type="text"></td>
-		    <td rowspan="13" ><input name="Submit1" type="button" value="提交信息" onClick="uploaddeviceinfo();"></td>
-		</tr>
-		
-		<tr>
-			<th >用户密码</th>
-		    <td><input id="d_addr" type="text"></td>
-		</tr>
-		<tr>
-			<th>姓名</th>
-		    <td><input id="d_name" type="text"></td>
-		</tr>
-		<tr>
-			<th>性别</th>
-		    <td>
-		    	<input name="d_sex" id="d_sex" type="radio" value="男"/>男
-		    	<input name="d_sex" id="d_sex" type="radio" value="女"/>女
-		    </td>
-		</tr>
-		<tr>
-			<th>年龄</th>
-		    <td><input id="d_age" type="text"></td>
-		</tr>
-		<tr>
-			<th>联系方式</th>
-		    <td><input id="d_phone" type="text"></td>
-		</tr>
-		<tr>
-			<th>备注</th>
-		    <td><input id="d_desc" type="text"></td>
-		</tr>
-
-		<tr>
-			<th>所管辖设备id</th>
-		    <dl id="devicelist">
-				
-			</dl>
-		</tr>
-		
-	</table>
 	
-	<div id="div1">
-	<p id="p1">This is a paragraph.</p>
-	<p id="p2">This is another paragraph.</p>
-	<input type="button" value="+" onClick="adddevicefield();">
-	</div>
+		<p bgcolor="lightblue">添加用户</p>
+
+		  
+		<p>用户账户<input id="account" type="text"></p>
+		<p>用户密码<input id="password" type="text"></p>
+		<p>姓名<input id="name" type="text"> </p>
+ 		<p>性别<input name="sex" id="sex" type="radio" value="男"/>男
+		    <input name="sex" id="sex" type="radio" value="女"/>女
+		</p>
+		<p>年龄<input id="age" type="text"></p>
+		<p>联系方式<input id="phone" type="text"></p>
+		<p>备注<input id="desc" type="text"></p>
+		<p>所管辖设备id
+		    <dl id="devicelist">
+				<dt><input id="device-0" type="text"><input type="button" value="+" onClick="adddevicefield();"></dt>
+			</dl>
+		</p>
+		<p>销售密码<input id="ncdword" type="password"></p>
+		<input name="Submit1" type="button" value="提交信息" onClick="adduser();">
 </body>
 </html>
