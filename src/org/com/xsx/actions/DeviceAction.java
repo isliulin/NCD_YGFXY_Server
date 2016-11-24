@@ -99,10 +99,9 @@ public class DeviceAction extends ActionSupport {
 		
 		SimpleDateFormat     matter1     =     new     SimpleDateFormat( "yyyyMMddHHmmss");  
 		
-		resultstr = "myresult->"+ERROR;
+		resultstr = "myresult->"+matter1.format(new Date());
 		
-		if(deviceService.UpDateDeviceTimeService(deviceBean.getId()))
-			resultstr = "myresult->"+matter1.format(new Date());
+		deviceService.UpDateDeviceTimeService(deviceBean.getId());
 
 		return SUCCESS;
 	}

@@ -36,6 +36,18 @@
 			}
 		);
 	}
+
+	//添加设备栏
+	function adddevicefield(){
+
+		var para=document.createElement("p");
+		var node=document.createTextNode("This is new.");
+		para.appendChild(node);
+
+		var element=document.getElementById("div1");
+		var child=document.getElementById("p1");
+		element.insertBefore(para,child);
+	}
 </script>
 </head>
 <body>
@@ -45,13 +57,13 @@
 		</tr>
 		  
 		<tr>
-			<th colspan="2">用户账户</th>
-		    <td><input id="d_id" type="text"></td>
+			<th >用户账户</th>
+		    <td ><input id="d_id" type="text"></td>
 		    <td rowspan="13" ><input name="Submit1" type="button" value="提交信息" onClick="uploaddeviceinfo();"></td>
 		</tr>
 		
 		<tr>
-			<th colspan="2">用户密码</th>
+			<th >用户密码</th>
 		    <td><input id="d_addr" type="text"></td>
 		</tr>
 		<tr>
@@ -79,11 +91,18 @@
 		</tr>
 
 		<tr>
-			<th colspan="2">所管辖设备id</th>
-		     <td><input id="d_desc" type="text"></td>
+			<th>所管辖设备id</th>
+		    <dl id="devicelist">
+				
+			</dl>
 		</tr>
 		
 	</table>
 	
+	<div id="div1">
+	<p id="p1">This is a paragraph.</p>
+	<p id="p2">This is another paragraph.</p>
+	<input type="button" value="+" onClick="adddevicefield();">
+	</div>
 </body>
 </html>

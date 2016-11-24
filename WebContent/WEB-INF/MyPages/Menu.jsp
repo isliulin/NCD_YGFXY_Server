@@ -33,7 +33,7 @@
 
                 <dt></dt>
 
-                <dd><a href="" target="_blank"><span>添加用户</span></a></dd>
+                <dd><a href="AddUser.action" target="_self"><span>添加用户</span></a></dd>
 
                 <dd><a href="" target="_blank"><span>888</span></a></dd>
 
